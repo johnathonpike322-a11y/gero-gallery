@@ -1,0 +1,190 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+body {
+  background: #0e0e0e;
+  color: #f2f2f2;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* =========================
+   PASSWORD OVERLAY
+   ========================= */
+
+#password-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+#password-box{
+  width: 100%;
+  max-width: 360px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.6);
+}
+
+#password-box h2{
+  margin-bottom: 14px;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+#password-input{
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: #0b0b0b;
+  color: #fff;
+  outline: none;
+}
+
+#password-input:focus{
+  border-color: rgba(255,255,255,0.35);
+}
+
+#password-btn{
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#password-btn:hover{
+  opacity: 0.9;
+}
+
+#password-error{
+  margin-top: 10px;
+  color: #ffb3b3;
+  font-size: 0.95rem;
+  display: none;
+}
+
+/* =========================
+   SITE CONTENT
+   ========================= */
+
+#site-content{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease;
+}
+
+#site-content.visible{
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background-image: url('photos/hero-mobile.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+header::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+header h1,
+header .subtitle{
+  position: relative;
+  z-index: 1;
+}
+
+header h1{
+  font-weight: 300;
+  letter-spacing: 4px;
+  font-size: 2rem;
+}
+
+header .subtitle{
+  margin-top: 12px;
+  font-weight: 200;
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* Gallery */
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.gallery figure{
+  position: relative;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.gallery img{
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery figcaption{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px;
+  background: rgba(0,0,0,0.6);
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery figure:hover img{
+  transform: scale(1.03);
+}
+
+.gallery figure:hover figcaption{
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px){
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+
+  header h1{
+    font-size: 1.5rem;
+  }
+}
