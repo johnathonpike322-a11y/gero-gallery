@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChadPilled – Gallery</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PASSWORD OVERLAY -->
+<div id="password-overlay">
+  <div id="password-box">
+    <h2>Enter password</h2>
+
+    <input
+      type="password"
+      id="password-input"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
+
+    <button id="password-btn" type="button">Unlock</button>
+
+    <div id="password-error">Wrong password. Try again.</div>
+  </div>
+</div>
+
+<!-- SITE CONTENT -->
+<div id="site-content">
+
+  <header>
+    <h1>ChadPilled</h1>
+    <p class="subtitle">Shots From My Pentax K10 Camera</p>
+
+    <a
+      href="https://instagram.com/ChadPilled_"
+      class="subtitle"
+      target="_blank"
+      rel="noopener"
+    >
+      Instagram
+    </a>
+  </header>
+
+  <main class="gallery">
+    <figure><img src="photos/hotelroom.jpg"><figcaption>Hotel Room</figcaption></figure>
+    <figure><img src="photos/coffee.jpg"><figcaption>Coffee</figcaption></figure>
+    <figure><img src="photos/brushingteeth.jpg"><figcaption>Brushing Teeth</figcaption></figure>
+    <figure><img src="photos/ben.jpg"><figcaption>Ben</figcaption></figure>
+    <figure><img src="photos/denverjungle.JPG"><figcaption>Denver</figcaption></figure>
+    <figure><img src="photos/egg.jpg"><figcaption>Egg Shells</figcaption></figure>
+    <figure><img src="photos/jamesbeach.JPG"><figcaption>James At The Beach</figcaption></figure>
+    <figure><img src="photos/jamesbryce.JPG"><figcaption>Pomegranite Juice</figcaption></figure>
+    <figure><img src="photos/jamesfire.jpg"><figcaption>Fire</figcaption></figure>
+    <figure><img src="photos/pia.jpg"><figcaption>Pia</figcaption></figure>
+    <figure><img src="photos/poop.jpg"><figcaption>Poop</figcaption></figure>
+    <figure><img src="photos/tower.jpg"><figcaption>Tower At Night</figcaption></figure>
+    <figure><img src="photos/jamesjungle.JPG"><figcaption>James</figcaption></figure>
+    <figure><img src="photos/view.JPG"><figcaption>Nice View</figcaption></figure>
+    <figure><img src="photos/warrenalice.JPG"><figcaption>Warren Alice</figcaption></figure>
+    <figure><img src="photos/warrenwind.jpg"><figcaption>Windmill</figcaption></figure>
+    <figure><img src="photos/warren.jpg"><figcaption>Warren</figcaption></figure>
+    <figure><img src="photos/jamesmartyna.JPG"><figcaption>James And Martyna</figcaption></figure>
+    <figure><img src="photos/superman.JPG"><figcaption>James</figcaption></figure>
+    <figure><img src="photos/chicken.JPG"><figcaption>Fried Chicken</figcaption></figure>
+    <figure><img src="photos/chocolateswastika.JPG"><figcaption>Ferrero Rocher</figcaption></figure>
+    <figure><img src="photos/throw.JPG"><figcaption>!!</figcaption></figure>
+  </main>
+
+</div>
+
+<!-- PASSWORD SCRIPT -->
+<script>
+  const correctPassword = "KRONOS";
+
+  function unlockSite() {
+    const input = document.getElementById("password-input").value.trim();
+    const error = document.getElementById("password-error");
+    const overlay = document.getElementById("password-overlay");
+    const content = document.getElementById("site-content");
+
+    if (input === correctPassword) {
+      error.style.display = "none";
+      overlay.style.display = "none";
+      content.classList.add("visible");
+    } else {
+      error.style.display = "block";
+    }
+  }
+
+  document.getElementById("password-btn").addEventListener("click", unlockSite);
+
+  document.getElementById("password-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") unlockSite();
+  });
+</script>
+
+</body>
+</html>
